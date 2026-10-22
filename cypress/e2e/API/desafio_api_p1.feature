@@ -1,4 +1,4 @@
-@api
+@api @regression_test
 Feature: Gerenciamento de usuário na API Account
   Como consumidor da API DemoQA
   Quero criar e autenticar um usuário

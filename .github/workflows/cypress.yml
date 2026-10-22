@@ -4,6 +4,16 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      test_tag:
+        description: Tag da suíte a executar
+        required: true
+        type: choice
+        options:
+          - "@regression_test"
+          - "@front"
+          - "@api"
+        default: "@regression_test"
 
 permissions:
   contents: read
@@ -25,7 +35,7 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        run: npm test
+        run: npm test -- --env "tags=${{ inputs.test_tag || '@regression_test' }}"
 
       - name: Upload Cypress artifacts
         if: always()

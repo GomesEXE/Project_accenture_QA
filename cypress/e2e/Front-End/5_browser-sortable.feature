@@ -1,3 +1,4 @@
+@front @regression_test
 Feature: Sortable do DemoQA
   Como visitante do DemoQA
   Quero acessar a funcionalidade Sortable

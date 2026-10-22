@@ -1,3 +1,4 @@
+@front @regression_test
 Feature: Progress Bar do DemoQA
   Como visitante do DemoQA
   Quero acessar a barra de progresso
