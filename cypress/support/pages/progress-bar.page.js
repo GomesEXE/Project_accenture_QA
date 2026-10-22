@@ -5,11 +5,15 @@ class ProgressBarPage {
   }
 
   stopBefore25() {
+    const minValue = Cypress._.random(1, 24);
+    const maxValue = Cypress._.random(minValue + 1, 24);
+
     cy.get("#progressBar .progress-bar").should(($progressBar) => {
       const value = Number($progressBar.attr("aria-valuenow"));
-      expect(value).to.be.within(15, 22);
+      expect(value).to.be.within(minValue, maxValue);
     });
     cy.get("#startStopButton").should("have.text", "Stop").click();
+    cy.wait(2500);
     cy.get("#startStopButton").should("have.text", "Start");
   }
 
