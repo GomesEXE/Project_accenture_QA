@@ -1,3 +1,4 @@
+@front @regression_test
 Feature: Web Tables do DemoQA
   Como visitante do DemoQA
   Quero acessar a página de tabelas web
@@ -21,4 +22,3 @@ Feature: Web Tables do DemoQA
 
 
 #lembrar dos examples na linguagem cucumber ultilizando o foreach
-

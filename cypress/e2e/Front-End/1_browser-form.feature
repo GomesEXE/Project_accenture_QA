@@ -1,3 +1,4 @@
+@front @regression_test
 Feature: Practice Form do DemoQA
   Como visitante do DemoQA
   Quero preencher e enviar o formulário de cadastro

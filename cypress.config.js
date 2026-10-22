@@ -12,6 +12,13 @@ module.exports = defineConfig({
     watchForFileChanges: false,
     specPattern: "cypress/e2e/**/*.feature",
     async setupNodeEvents(on, config) {
+      if (config.env.tags) {
+        config.expose = {
+          ...config.expose,
+          tags: config.env.tags,
+        };
+      }
+
       await addCucumberPreprocessorPlugin(on, config);
       on(
         "file:preprocessor",

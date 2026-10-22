@@ -1,3 +1,4 @@
+@front @regression_test
 Feature: Browser Windows do DemoQA
   Como visitante do DemoQA
   Quero abrir e validar uma nova janela do navegador

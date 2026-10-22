@@ -13,6 +13,20 @@ npm test
 O GitHub Actions executa essa mesma suíte em cada push e pull request. Também é
 possível iniciá-la manualmente pela aba **Actions** do GitHub.
 
+### Executar por tags
+
+As features usam tags do Cucumber para separar os testes de front-end e API.
+`@regression_test` está presente em todas as features.
+
+```bash
+npm run test:front
+npm run test:api
+npm run test:regression
+```
+
+No GitHub Actions, use **Run workflow** e escolha `@front`, `@api` ou
+`@regression_test`. Pushes e pull requests executam a suíte de regressão.
+
 ## Bugs conhecidos
 
 ### Botão de fechar o popup do Practice Form

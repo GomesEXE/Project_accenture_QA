@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run",
+    "test:front": "cypress run --env tags=@front",
+    "test:api": "cypress run --env tags=@api",
+    "test:regression": "cypress run --env tags=@regression_test"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^28.0.1",
@@ -10,6 +13,7 @@
     "esbuild": "^0.28.2"
   },
   "cypress-cucumber-preprocessor": {
+    "filterSpecs": true,
     "stepDefinitions": [
       "cypress/e2e/**/step_definitions/**/*.js"
     ]
