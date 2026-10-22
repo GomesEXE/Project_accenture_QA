@@ -12,5 +12,3 @@ Feature: Practice Form do DemoQA
     Then um popup deve ser exibido com os dados enviados
     When fecho o popup
     Then o popup deve ser fechado
-
-    #Reportar que o botão de fechar o popup não está funcionando corretamente.

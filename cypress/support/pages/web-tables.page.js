@@ -1,4 +1,8 @@
 class WebTablesPage {
+  showTwentyRecords() {
+    return cy.get("select.form-control").select("20");
+  }
+
   createRecord(record) {
     cy.get("#addNewRecordButton").click();
     cy.get("#firstName").type(record.firstName);
@@ -9,7 +13,7 @@ class WebTablesPage {
     cy.get("#department").type(record.department);
     cy.get("#submit").click();
 
-    cy.get("body").should("contain.text", record.lastName);
+    return cy.get("body").should("contain.text", record.lastName);
   }
 
   editRecord(record) {
@@ -24,18 +28,17 @@ class WebTablesPage {
   }
 
   deleteRecord(record) {
-    this.findRecordRow(record).within(() => {
+    return this.findRecordRow(record).within(() => {
       cy.get('[title="Delete"]').click({ force: true });
     });
   }
 
   assertRecordDeleted(record) {
-    cy.get("body").should("not.contain.text", record.lastName);
+    return cy.get("body").should("not.contain.text", record.lastName);
   }
 
   findRecordRow(record) {
-    return cy.contains(record.lastName).then(($cell) => {
-      const $row = $cell.parents().filter((_, element) => element.querySelector('[title="Edit"]')).first();
+    return cy.contains("tr", record.lastName).then(($row) => {
       expect($row, "linha do registro com ação de edição").to.have.length(1);
       return cy.wrap($row);
     });
